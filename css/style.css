@@ -51,3 +51,20 @@ button:hover{
 .dropdown:hover{
     background-color: rgb(202, 199, 199);
 }
+
+/*Cards*/
+.deck{
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-evenly;
+    padding: 0 1%;
+    justify-content: center;
+    width: 40%;
+    margin: 10px auto;
+}
+.card{
+    background: blue;
+    width: 100px;
+    height: 150px;
+    margin: 1% 1%;
+}
