@@ -59,12 +59,38 @@ button:hover{
     align-content: space-evenly;
     padding: 0 1%;
     justify-content: center;
-    width: 40%;
+    width: 60%;
     margin: 10px auto;
 }
 .card{
-    background: blue;
-    width: 100px;
-    height: 150px;
+    width: 150px;
+    height: 200px;
     margin: 1% 1%;
+    perspective: 1000px;
+}
+/*When hovered*/
+.card:hover .sides{
+    transform: rotateY(180deg);
+}
+/*flip speed*/
+.sides{
+    transition: 0.9s;
+    transform-style: preserve-3d;
+    position: relative;
+}
+.front, .back{
+    backface-visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 150px;
+    height: 200px;
+}
+.front{
+    background-color: blue;
+    z-index: 2;
+}
+.back{
+    background-color: red;
+    transform: rotateY(180deg);
 }
