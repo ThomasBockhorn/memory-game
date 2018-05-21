@@ -62,16 +62,18 @@ button:hover{
     width: 60%;
     margin: 10px auto;
 }
-.card{
+.card,
+.front,
+.back{
     width: 150px;
     height: 200px;
+    border-radius: 15px;
+}
+.card{
     margin: 1% 1%;
     perspective: 1000px;
 }
-/*When hovered
-.card:hover .sides{
-    transform: rotateY(180deg);
-}*/
+/*flip class that will flip card*/
 .flip{
     transform: rotateY(180deg);
 }
@@ -86,8 +88,6 @@ button:hover{
     position: absolute;
     top: 0;
     left: 0;
-    width: 150px;
-    height: 200px;
 }
 .front{
     background-color: blue;
