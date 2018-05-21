@@ -68,8 +68,11 @@ button:hover{
     margin: 1% 1%;
     perspective: 1000px;
 }
-/*When hovered*/
+/*When hovered
 .card:hover .sides{
+    transform: rotateY(180deg);
+}*/
+.flip{
     transform: rotateY(180deg);
 }
 /*flip speed*/
