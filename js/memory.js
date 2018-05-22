@@ -6,3 +6,9 @@ deck.addEventListener("click", function(e){
         side.classList.toggle("flip");
     }
 });
+
+//random number generator
+function randomNumber(){
+    let num = Math.floor(Math.random() * 16 + 1);
+    return num;
+}
