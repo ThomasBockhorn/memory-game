@@ -7,8 +7,14 @@ deck.addEventListener("click", function(e){
     }
 });
 
-//random number generator
-function randomNumber(min, max){
-    return Math.floor(Math.random() * (max-min +1)) + min;
+//This function will shuffle the cards
+function shuffle(){
+    const deck = document.querySelector(".deck");
+    const frag = document.createDocumentFragment();
+
+    while(deck.children.length){
+        frag.appendChild(deck.children[Math.floor(Math.random()*deck.children.length)]);
+    }
+    deck.appendChild(frag);
 }
 
