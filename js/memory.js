@@ -8,7 +8,7 @@ deck.addEventListener("click", function(e){
 });
 
 //random number generator
-function randomNumber(){
-    let num = Math.floor(Math.random() * 16 + 1);
-    return num;
+function randomNumber(min, max){
+    return Math.floor(Math.random() * (max-min +1)) + min;
 }
+
