@@ -1,13 +1,18 @@
+//When the page is loaded the cards get shuffled
 onload = shuffle();
 
-//will flip when card is picked
-const deck = document.querySelector(".deck");
-deck.addEventListener("click", function(e){
-    if(e.target.tagName.toLowerCase() === "img"){
-        const side = e.target.parentElement.parentElement;
-        side.classList.toggle("flip");
-    }
-});
+//Card functionality
+//this function pick will flip when card is picked
+function pick(){
+    const deck = document.querySelector(".deck");
+    deck.addEventListener("click", function(e){
+        if(e.target.tagName.toLowerCase() === "img"){
+            const side = e.target.parentElement.parentElement;
+            side.classList.toggle("flip");
+        }
+    });
+}
+pick();
 
 //This function will shuffle the cards
 function shuffle(){
