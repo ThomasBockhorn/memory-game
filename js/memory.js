@@ -20,6 +20,12 @@ function shuffle(){
     deck.appendChild(frag);
 }
 
+//Menu functionality
+//When a user clicks on new
+const newChoice = document.getElementById("new");
+newChoice.addEventListener("click", function(){
+    document.location.reload(true);
+});
 //When the user clicks on shuffle on the menu
 const choice = document.getElementById("reshuffle");
 choice.addEventListener("click",function(){
