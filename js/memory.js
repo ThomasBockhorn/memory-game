@@ -1,5 +1,7 @@
 //Global variable
-const arr = [];
+let cardMemory = [];
+let counter = 0;
+const deck = document.querySelector(".deck");
 
 //When the page is loaded the cards get shuffled
 onload = shuffle();
@@ -10,12 +12,10 @@ function flip(e){
         const side = e.target.parentElement.parentElement;
         side.classList.toggle("flip");
     }
-    return e.target;
 }
 
 //This function will shuffle the cards
 function shuffle(){
-    const deck = document.querySelector(".deck");
     const frag = document.createDocumentFragment();
 
     while(deck.children.length){
@@ -31,14 +31,28 @@ newChoice.addEventListener("click", function(){
     document.location.reload(true);
 });
 
-//When the user clicks a card
-const deck = document.querySelector(".deck");
-deck.addEventListener("click",function(e){
-    //put value in array then compare
-    const cardOne = flip(e);
+//Limits the cards to two
+function pickTwo(e){
+    let card = e.target;
+    if(counter < 2){
+        flip(e);
+        cardMemory.push(card.parentElement.nextElementSibling.innerHTML);
+        counter++;
+    }
+    if(counter === 2){
+        if(cardMemory[0] === cardMemory[1]){
+            console.log("Congrats");
+            cardMemory = [];
+            counter = 0;
+        }else{
+            console.log("Try again!");
+            counter = 0;
+            cardMemory = []; 
+        }
+    }
+}
+
+//When a user picks two cards
+deck.addEventListener("click", function(e){
+    pickTwo(e);
 });
-//Hold on to the choice the user picked
-//const cardChoice = e.target;
-//arr.push(cardChoice.parentElement.nextElementSibling.innerHTML);
-//const deck = document.querySelector(".deck");
-//   deck.addEventListener("click", function(e){
