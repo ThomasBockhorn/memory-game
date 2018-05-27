@@ -45,6 +45,10 @@ function pickTwo(e){
         }
         counter++;
     }
+}
+
+//function that compares the cards
+function compare(){
     if (counter === 2){
         if(cardMemory[0] === cardMemory[1]){
             console.log("Congrats");
@@ -65,8 +69,10 @@ function pickTwo(e){
         }
     }
 }
+    
 
 //When a user picks two cards
 deck.addEventListener("click", function(e){
     pickTwo(e);
+    setTimeout(compare,2000);
 });
