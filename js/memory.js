@@ -3,8 +3,7 @@ let cardMemory = [];
 let eventMemory = [];
 let counter = 0;
 const deck = document.querySelector(".deck");
-const front = document.querySelectorAll(".front");
-const back = document.querySelectorAll(".back");
+let winningCounter = 0;
 
 //When the page is loaded the cards get shuffled
 onload = shuffle();
@@ -49,28 +48,22 @@ function pickTwo(e){
 
 //function that compares the cards
 function compare(){
-    if (counter === 2){
-        if(cardMemory[0] === cardMemory[1]){
-            console.log("Congrats");
-            for(let i = 0; i < eventMemory.length; i++){
-                eventMemory[i].parentElement.nextElementSibling.classList.toggle("locking-card");
-            }
-            cardMemory = [];
-            eventMemory = [];
-            counter = 0;
-        }else{
-            console.log("Try again!");
-            for(let i = 0; i < eventMemory.length; i++){
-                eventMemory[i].parentElement.parentElement.classList.toggle("flip");
-            }
-            counter = 0;
-            cardMemory = [];
-            eventMemory = []; 
+    if(cardMemory[0] === cardMemory[1] && counter === 2){
+        console.log("Congrats");
+        for(let i = 0; i < eventMemory.length; i++){
+            eventMemory[i].parentElement.nextElementSibling.classList.toggle("locking-card");
+        }
+    }else{
+        console.log("Try again!");
+        for(let i = 0; i < eventMemory.length; i++){
+            eventMemory[i].parentElement.parentElement.classList.toggle("flip");
         }
     }
+    cardMemory = [];
+    eventMemory = [];
+    counter = 0;
 }
     
-
 //When a user picks two cards
 deck.addEventListener("click", function(e){
     pickTwo(e);
