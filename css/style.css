@@ -103,3 +103,6 @@ img{
     background-color: red;
     transform: rotateY(180deg);
 }
+.locking-card{
+    pointer-events: none;
+}

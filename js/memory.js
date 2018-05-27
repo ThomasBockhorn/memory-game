@@ -1,7 +1,10 @@
 //Global variable
 let cardMemory = [];
+let eventMemory = [];
 let counter = 0;
 const deck = document.querySelector(".deck");
+const front = document.querySelectorAll(".front");
+const back = document.querySelectorAll(".back");
 
 //When the page is loaded the cards get shuffled
 onload = shuffle();
@@ -31,23 +34,34 @@ newChoice.addEventListener("click", function(){
     document.location.reload(true);
 });
 
-//Limits the cards to two
+//This function allows the user to pick two cards
 function pickTwo(e){
     let card = e.target;
+    eventMemory.push(card);
     if(counter < 2){
         flip(e);
-        cardMemory.push(card.parentElement.nextElementSibling.innerHTML);
+        if(card.parentElement.nextElementSibling != null){
+            cardMemory.push(card.parentElement.nextElementSibling.innerHTML);
+        }
         counter++;
     }
-    if(counter === 2){
+    if (counter === 2){
         if(cardMemory[0] === cardMemory[1]){
             console.log("Congrats");
+            for(let i = 0; i < eventMemory.length; i++){
+                eventMemory[i].parentElement.nextElementSibling.classList.toggle("locking-card");
+            }
             cardMemory = [];
+            eventMemory = [];
             counter = 0;
         }else{
             console.log("Try again!");
+            for(let i = 0; i < eventMemory.length; i++){
+                eventMemory[i].parentElement.parentElement.classList.toggle("flip");
+            }
             counter = 0;
-            cardMemory = []; 
+            cardMemory = [];
+            eventMemory = []; 
         }
     }
 }
