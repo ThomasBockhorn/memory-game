@@ -37,12 +37,10 @@ newChoice.addEventListener("click", function(){
 function pickTwo(e){
     let card = e.target;
     eventMemory.push(card);
-    if(counter < 2){
-        flip(e);
+    if(counter != 2){
         if(card.parentElement.nextElementSibling != null){
             cardMemory.push(card.parentElement.nextElementSibling.innerHTML);
         }
-        counter++;
     }
 }
 
@@ -52,8 +50,9 @@ function compare(){
         console.log("Congrats");
         for(let i = 0; i < eventMemory.length; i++){
             eventMemory[i].parentElement.nextElementSibling.classList.toggle("locking-card");
+            winningCounter++;
         }
-    }else{
+    }else if(counter === 2){
         console.log("Try again!");
         for(let i = 0; i < eventMemory.length; i++){
             eventMemory[i].parentElement.parentElement.classList.toggle("flip");
@@ -66,6 +65,9 @@ function compare(){
     
 //When a user picks two cards
 deck.addEventListener("click", function(e){
+    flip(e);
     pickTwo(e);
+    counter++;
     setTimeout(compare,2000);
+    
 });
