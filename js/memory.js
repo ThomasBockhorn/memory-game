@@ -96,6 +96,7 @@ deck.addEventListener("click", function(e){
     pickTwo(e);
     setTimeout(compare,3000);
 });
+//displays when winningCounter = 8
 if(winningCounter === 8){
     winningModal();
 }
