@@ -4,6 +4,7 @@ let eventMemory = [];
 let counter = 0;
 const deck = document.querySelector(".deck");
 let winningCounter = 0;
+const runningTotal = document.querySelector(".display-Result");
 
 //When the page is loaded the cards get shuffled
 onload = shuffle();
@@ -56,9 +57,9 @@ function compare(){
         for(let i = 0; i < eventMemory.length; i++){
             console.log(cardMemory[i]);
             eventMemory[i].parentElement.nextElementSibling.classList.toggle("locking-card");
-            //winningCounter++;
         }
-        console.log("Its a match");
+        winningCounter++;
+        runningTotal.innerHTML = "You have paired: " + winningCounter;
         clearMemory();
     }else if(cardMemory[0] != cardMemory[1] && cardMemory.length === 2) {
         for(let i = 0; i < eventMemory.length; i++){
@@ -67,6 +68,11 @@ function compare(){
         }
         console.log("Try again");
         clearMemory();
+    }
+
+    //This will display the winning message when you reach 8 pairs
+    if(winningCounter === 8){
+        runningTotal.innerHTML = "YOU WON!!!"; 
     }
 }
     

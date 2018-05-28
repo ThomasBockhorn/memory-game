@@ -4,20 +4,16 @@ body{
     font-family: 'Raleway', sans-serif;
 } 
 
-/*File nav*/
+/*nav*/
 .navbar{
     width: 100%;
     height: 40px;
     background: white;
     padding-left: 25px;
 }
-.dropdown{
-   position: relative;
-   display: inline-block;
-}
 .file-button{
     height: 2em;
-    width: 100px;
+    width: 120px;
     font-size: 20px;
     font-weight: bolder;
     background: inherit;
@@ -25,31 +21,12 @@ body{
     outline: none;
     text-align: left;
 }
-.file-contents{
-    display: none;
-    position: absolute;
-    background-color: whitesmoke;
-    min-width: 100px;
-    box-shadow: 0px 8px 16px 0px;
-    z-index: 1;
-}
-.file-contents a{
-    color: black;
-    text-decoration: none;
-    padding: 5px 6px;
-    display: block;
-}
-.file-contents a:hover{
-    background-color: white;
-}
-button:hover{
-    background-color: white;
-}
-.dropdown:hover .file-contents{
-    display: block;
-}
-.dropdown:hover{
-    background-color: rgb(247, 243, 243);
+.display-Result{
+    float: right;
+    padding-right: 50px;
+    font-size: 20px;
+    font-weight: bolder;
+    padding-top: 8px;
 }
 
 /*Cards*/
