@@ -66,30 +66,6 @@ function winningModal(){
     //This will display the winning message when you reach 8 pairs
     //displays when you reach 8 pairs
     modalMessage.style.display = "block";
-
-    //When user clicks on the close button
-    span.addEventListener("click", function(){
-        modalMessage.style.display = "none";
-    });
-
-    //when user clicks outside of the box
-    window.onclick = function(e){
-        if(e.target == messageModal){
-            modalMessage.style.display = "none";
-        }
-    }
-
-    //When user clicks on yes
-    yes.addEventListener("click", function(){
-        document.location.reload(true); 
-        console.log("works!");
-    });
-
-    //When user clicks no
-    no.addEventListener("click", function(){
-        content.innerHTML = "Thanks for playing!  GOOD BYE!!";
-        console.log("works");
-    }); 
 }
 
 //function that compares the cards
@@ -120,7 +96,9 @@ deck.addEventListener("click", function(e){
     pickTwo(e);
     setTimeout(compare,3000);
 });
-
+if(winningCounter === 8){
+    winningModal();
+}
 //Modal setup
 //When user clicks on the close button
 spanModal.addEventListener("click", function(){
