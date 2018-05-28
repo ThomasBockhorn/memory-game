@@ -80,6 +80,8 @@ img{
     background-color: red;
     transform: rotateY(180deg);
 }
+
+/*This will lock the cards in place*/
 .locking-card{
     pointer-events: none;
 }

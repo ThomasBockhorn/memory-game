@@ -55,7 +55,6 @@ function clearMemory(){
 function compare(){
     if(cardMemory[0] === cardMemory[1] && cardMemory.length === 2){
         for(let i = 0; i < eventMemory.length; i++){
-            console.log(cardMemory[i]);
             eventMemory[i].parentElement.nextElementSibling.classList.toggle("locking-card");
         }
         winningCounter++;
@@ -63,10 +62,8 @@ function compare(){
         clearMemory();
     }else if(cardMemory[0] != cardMemory[1] && cardMemory.length === 2) {
         for(let i = 0; i < eventMemory.length; i++){
-            console.log(cardMemory[i]);
             eventMemory[i].parentElement.parentElement.classList.toggle("flip");
         }
-        console.log("Try again");
         clearMemory();
     }
 
