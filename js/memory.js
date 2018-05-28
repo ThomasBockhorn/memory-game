@@ -37,37 +37,42 @@ newChoice.addEventListener("click", function(){
 function pickTwo(e){
     let card = e.target;
     eventMemory.push(card);
-    if(counter != 2){
+    if(counter < 2){
         if(card.parentElement.nextElementSibling != null){
             cardMemory.push(card.parentElement.nextElementSibling.innerHTML);
-        }
+            counter++;
+        }  
     }
+}
+function clearMemory(){
+    cardMemory.length = 0;
+    eventMemory.length = 0;
+    counter = 0;
 }
 
 //function that compares the cards
 function compare(){
-    if(cardMemory[0] === cardMemory[1] && counter === 2){
-        console.log("Congrats");
+    if(cardMemory[0] === cardMemory[1] && cardMemory.length === 2){
         for(let i = 0; i < eventMemory.length; i++){
+            console.log(cardMemory[i]);
             eventMemory[i].parentElement.nextElementSibling.classList.toggle("locking-card");
-            winningCounter++;
+            //winningCounter++;
         }
-    }else if(counter === 2){
-        console.log("Try again!");
+        console.log("Its a match");
+        clearMemory();
+    }else if(cardMemory[0] != cardMemory[1] && cardMemory.length === 2) {
         for(let i = 0; i < eventMemory.length; i++){
+            console.log(cardMemory[i]);
             eventMemory[i].parentElement.parentElement.classList.toggle("flip");
         }
+        console.log("Try again");
+        clearMemory();
     }
-    cardMemory = [];
-    eventMemory = [];
-    counter = 0;
 }
     
 //When a user picks two cards
 deck.addEventListener("click", function(e){
     flip(e);
     pickTwo(e);
-    counter++;
-    setTimeout(compare,2000);
-    
+    setTimeout(compare,3000);  
 });
