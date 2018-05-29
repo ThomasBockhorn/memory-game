@@ -40,6 +40,10 @@ body{
     order: 2;
     margin: auto;
 }
+.timer{
+    order: 4;
+    margin: auto;
+}
 
 /*Cards*/
 .deck{
