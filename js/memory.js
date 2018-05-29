@@ -55,6 +55,20 @@ function pickTwo(e){
     }
 }
 
+//function that changes the value of the stars
+function starChange(){
+    //Stars evaluation
+    if (turn === 30){
+        document.getElementById("star").innerHTML = "<i class='fas fa-star'>"+"<i class='fas fa-star'>"+"<i class='fas fa-star'>";
+    }
+    else if (turn === 40){
+        document.getElementById("star").innerHTML = "<i class='fas fa-star'>"+"<i class='fas fa-star'>";
+    }
+    else if (turn === 50){
+        document.getElementById("star").innerHTML = "<i class='fas fa-star'>";
+    }
+}
+
 //This will clear the memory
 function clearMemory(){
     cardMemory.length = 0;
@@ -111,6 +125,7 @@ start();
 deck.addEventListener("click", function(e){
     flip(e);
     pickTwo(e);
+    starChange(); //changes the star level when you reach certain turn counts
     setTimeout(compare,600);
 });
 
@@ -129,3 +144,4 @@ yes.addEventListener("click", function(){
 no.addEventListener("click", function(){
     content.innerHTML = "Thanks for playing!  GOOD BYE!!";
 });
+

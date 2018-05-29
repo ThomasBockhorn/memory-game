@@ -15,17 +15,19 @@ body{
     flex-direction: row;
     align-items: center;
     position: relative;
+    font-size: 20px;
+    font-weight: bolder;
 }
 .file-button{
     height: 2em;
-    width: 120px;
     font-size: 20px;
     font-weight: bolder;
     background: inherit;
     border: none;
     outline: none;
-    order: 1;
+    order: -1;
     margin: auto;
+    width: 25%;
 }
 .display-Result{
     float: right;
@@ -33,16 +35,19 @@ body{
     font-size: 20px;
     font-weight: bolder;
     padding-top: 8px;
-    order: 3;
-    margin: auto;
-}
-.star{
     order: 2;
     margin: auto;
+    width: 25%;
+}
+.star{
+    order: 1;
+    margin: auto;
+    width: 25%;
 }
 .timer{
-    order: 4;
+    order: 3;
     margin: auto;
+    width: 25%;
 }
 
 /*Cards*/
@@ -72,6 +77,7 @@ img{
     margin: 1% 1%;
     perspective: 1000px;
 }
+
 /*flip class that will flip card*/
 .flip{
     transform: rotateY(180deg);
