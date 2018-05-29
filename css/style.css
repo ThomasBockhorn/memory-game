@@ -11,43 +11,40 @@ body{
     background: white;
     padding-left: 25px;
     display: flex;
-    flex-wrap: center;
+    flex-wrap: wrap;
     flex-direction: row;
-    align-items: center;
+    justify-content: space-around;
     position: relative;
     font-size: 20px;
     font-weight: bolder;
+    padding-top: 8px;
 }
 .file-button{
-    height: 2em;
     font-size: 20px;
     font-weight: bolder;
     background: inherit;
     border: none;
     outline: none;
     order: -1;
-    margin: auto;
-    width: 25%;
+    width: 8em;
+    padding-bottom: 10px;
 }
 .display-Result{
     float: right;
     padding-right: 50px;
     font-size: 20px;
     font-weight: bolder;
-    padding-top: 8px;
-    order: 2;
-    margin: auto;
-    width: 25%;
+    order: 1;
+    width: 8em;
 }
 .star{
-    order: 1;
-    margin: auto;
-    width: 25%;
+    order: 2;
+    margin: 2em;
+    width: 8em;
 }
 .timer{
     order: 3;
-    margin: auto;
-    width: 25%;
+    width: 8em;
 }
 
 /*Cards*/
