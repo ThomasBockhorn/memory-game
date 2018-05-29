@@ -5,7 +5,11 @@ let eventMemory = [];
 let counter = 0;
 const deck = document.querySelector(".deck");
 const runningTotal = document.querySelector(".display-Result");
+const finalTotal = document.querySelector(".finalTotal");
+//how many cards were flipped
 let turn = 0;
+//holds how many successful matches were made
+let winningCounter = 0;
 
 //for the modal
 const yes = document.querySelector("#yes");
@@ -28,7 +32,6 @@ function flip(e){
 //This function will shuffle the cards
 function shuffle(){
     const frag = document.createDocumentFragment();
-
     while(deck.children.length){
         frag.appendChild(deck.children[Math.floor(Math.random()*deck.children.length)]);
     }
@@ -70,6 +73,8 @@ function compare(){
         winningCounter++;
         if(winningCounter === 8){
             modalMessage.style.display = "block";
+            //Display number of turns
+            finalTotal.innerHTML = turn;
         }
         clearMemory();
     }else if(cardMemory[0] != cardMemory[1] && cardMemory.length === 2) {
@@ -90,6 +95,7 @@ deck.addEventListener("click", function(e){
 });
 
 //Modal setup
+
 //When user clicks on the close button
 spanModal.addEventListener("click", function(){
     modalMessage.style.display = "none";
