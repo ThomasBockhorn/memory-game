@@ -73,11 +73,9 @@ img{
     left: 0;
 }
 .front{
-    background-color: blue;
     z-index: 2;
 }
 .back{
-    background-color: red;
     transform: rotateY(180deg);
 }
 

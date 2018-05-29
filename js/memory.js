@@ -4,8 +4,8 @@ let cardMemory = [];
 let eventMemory = [];
 let counter = 0;
 const deck = document.querySelector(".deck");
-let winningCounter = 0;
 const runningTotal = document.querySelector(".display-Result");
+let turn = 0;
 
 //for the modal
 const yes = document.querySelector("#yes");
@@ -61,13 +61,6 @@ function clearMemory(){
     counter = 0;
 }
 
-//This will display the modal message if reached 8 pair
-function winningModal(){
-    //This will display the winning message when you reach 8 pairs
-    //displays when you reach 8 pairs
-    modalMessage.style.display = "block";
-}
-
 //function that compares the cards
 function compare(){
     if(cardMemory[0] === cardMemory[1] && cardMemory.length === 2){
@@ -76,11 +69,8 @@ function compare(){
         }
         winningCounter++;
         if(winningCounter === 8){
-            //This will display the winning message when you reach 8 pairs
-            //displays when you reach 8 pairs
             modalMessage.style.display = "block";
         }
-        runningTotal.innerHTML = "You have paired: " + winningCounter;
         clearMemory();
     }else if(cardMemory[0] != cardMemory[1] && cardMemory.length === 2) {
         for(let i = 0; i < eventMemory.length; i++){
@@ -88,13 +78,15 @@ function compare(){
         }
         clearMemory();
     }
+    turn++;
+    runningTotal.innerHTML = turn + " moves";
 }
     
 //When a user picks two cards
 deck.addEventListener("click", function(e){
     flip(e);
     pickTwo(e);
-    setTimeout(compare,3000);
+    setTimeout(compare,600);
 });
 
 //Modal setup
