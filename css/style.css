@@ -10,6 +10,11 @@ body{
     height: 40px;
     background: white;
     padding-left: 25px;
+    display: flex;
+    flex-wrap: center;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
 }
 .file-button{
     height: 2em;
@@ -19,7 +24,8 @@ body{
     background: inherit;
     border: none;
     outline: none;
-    text-align: left;
+    order: 1;
+    margin: auto;
 }
 .display-Result{
     float: right;
@@ -27,6 +33,12 @@ body{
     font-size: 20px;
     font-weight: bolder;
     padding-top: 8px;
+    order: 3;
+    margin: auto;
+}
+.star{
+    order: 2;
+    margin: auto;
 }
 
 /*Cards*/
