@@ -73,6 +73,7 @@ function compare(){
             modalMessage.style.display = "block";
             //Display number of turns
             finalTotal.innerHTML = turn;
+            stop(); //stops the timer
         }
         clearMemory();
     }else if(cardMemory[0] != cardMemory[1] && cardMemory.length === 2) {
@@ -84,8 +85,29 @@ function compare(){
     turn++;
     runningTotal.innerHTML = turn + " moves";
 }
-    
+
+//Timer
+//This puts the incremented timer value in the nav
+function timer(){
+    document.getElementById("timer").innerHTML = ++value;
+}
+
+//The actual timer mechanism 
+let timerInterval = null;
+function start(){
+    stop(); //Stops the previous start()
+    value = 0
+    timerInterval = setInterval(timer, 1000);
+}
+
+//This stops the timer
+function stop() {
+    clearInterval(timerInterval);
+}
+
+
 //When a user picks two cards
+start();
 deck.addEventListener("click", function(e){
     flip(e);
     pickTwo(e);
@@ -93,7 +115,6 @@ deck.addEventListener("click", function(e){
 });
 
 //Modal setup
-
 //When user clicks on the close button
 spanModal.addEventListener("click", function(){
     modalMessage.style.display = "none";
@@ -107,4 +128,4 @@ yes.addEventListener("click", function(){
 //When user clicks no
 no.addEventListener("click", function(){
     content.innerHTML = "Thanks for playing!  GOOD BYE!!";
-}); 
+});
