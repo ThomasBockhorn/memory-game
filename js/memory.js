@@ -6,10 +6,8 @@ let counter = 0;
 const deck = document.querySelector(".deck");
 const runningTotal = document.querySelector(".display-Result");
 const finalTotal = document.querySelector(".finalTotal");
-//how many cards were flipped
-let turn = 0;
-//holds how many successful matches were made
-let winningCounter = 0;
+let turn = 0;   //how many cards were flipped
+let winningCounter = 0; //holds how many successful matches were made
 
 //for the modal
 const yes = document.querySelector("#yes");
