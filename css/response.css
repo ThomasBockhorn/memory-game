@@ -1,0 +1,58 @@
+/*Small view port*/
+@media screen and (max-width: 425px){
+    /*Navbar*/
+    .navbar{
+        font-size: 12px;
+    }
+    .file-button{
+        font-size: 12px;
+    }
+    #star{
+        font-size: 12px;
+        margin-top: 8px;
+    }
+    #timer{
+        margin-top: 8px;
+    }
+    .display-Result{
+        font-size: 12px;
+        margin-top: 8px;
+    }
+    /*Deck*/
+    .deck{
+        width: 70%;
+    }
+    .card,
+    .front,
+    .back{
+        width: 65px;
+        height: 100px;
+        border-radius: 2px;
+    }
+    /*Modal Message*/
+    .content{
+        font-size: 10px;
+    }
+}
+
+/*tablet viewport of max width 768px*/
+@media screen and (max-width: 768px){
+    .card,
+    .front,
+    .back{
+        width: 90px;
+        height: 150px;
+        border-radius: 8px;
+    }
+/*Modal Message*/
+    .content{
+    font-size: 15px;
+    }
+}
+
+/*Laptop viewport of max width 1024px*/
+@media screen and (max-width: 1024px){
+    .deck{
+        width: 80%;
+    }
+}
