@@ -83,11 +83,13 @@ function compare(){
             eventMemory[i].parentElement.nextElementSibling.classList.toggle("locking-card");
         }
         winningCounter++;
+        //If the user gets all 8 pairs, the player is greeted with a modal that displays stats
         if(winningCounter === 8){
-            modalMessage.style.display = "block";
-            //Display number of turns
-            finalTotal.innerHTML = turn;
             stop(); //stops the timer
+            modalMessage.style.display = "block";
+            finalTotal.innerHTML = turn; //Display number of turns
+            document.getElementById("starModal").innerHTML = document.getElementById("star").innerHTML;
+            document.getElementById("timerModal").innerHTML = document.getElementById("timer").innerHTML = ++value;
         }
         clearMemory();
     }else if(cardMemory[0] != cardMemory[1] && cardMemory.length === 2) {
