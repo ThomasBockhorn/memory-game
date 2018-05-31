@@ -16,6 +16,25 @@ const modalMessage = document.querySelector(".modal");
 const spanModal = document.querySelector(".close");
 const content = document.querySelector(".content");
 
+//Initialize function
+function initialize(){
+    const sides = document.getElementsByClassName("sides");
+
+    //removes all flip class from div with side class in them
+    for(let i = 0; i < sides.length; i++){
+        sides[i].classList.value = "sides";
+    }
+    shuffle();
+    clearMemory();
+    turn = 0; //Sets turn back to zero
+    //sets timer to zero
+    document.getElementById("timer").innerHTML = 0;
+    runningTotal.innerHTML = 0; //clears how many turns were made
+    start(); //sets timer back to zero
+    //sets the stars to the full four
+    document.getElementById("star").innerHTML = "<i class='fas fa-star'>"+"<i class='fas fa-star'>"+"<i class='fas fa-star'>"+"<i class='fas fa-star'>";
+}
+
 //When the page is loaded the cards get shuffled
 onload = shuffle();
 
@@ -40,7 +59,7 @@ function shuffle(){
 //When a user clicks on new
 const newChoice = document.getElementById("new");
 newChoice.addEventListener("click", function(){
-    document.location.reload(true);
+    initialize();
 });
 
 //This function allows the user to pick two cards
@@ -51,7 +70,6 @@ function pickTwo(e){
         if((counter < 2) && (e.target.parentElement.nextElementSibling.classList.contains("back"))){
             cardMemory.push(e.target.parentElement.nextElementSibling.innerHTML);
             counter++;
-            console.log(e.target.parentElement.nextElementSibling.innerHTML);
         }
     }
     else if(counter === 1){
