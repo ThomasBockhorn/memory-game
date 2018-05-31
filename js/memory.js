@@ -45,14 +45,18 @@ newChoice.addEventListener("click", function(){
 
 //This function allows the user to pick two cards
 function pickTwo(e){
-    let card = e.target;
-    eventMemory.push(card);
-    if(counter < 2){
-        if(card.parentElement.nextElementSibling != null){
-            cardMemory.push(card.parentElement.nextElementSibling.innerHTML);
+    if((e.target != deck) && (!e.target.parentElement.classList.contains("back"))){
+        turn++;
+        eventMemory.push(e.target);
+        if((counter < 2) && (e.target.parentElement.nextElementSibling.classList.contains("back"))){
+            cardMemory.push(e.target.parentElement.nextElementSibling.innerHTML);
             counter++;
-        }  
+            console.log(e.target.parentElement.nextElementSibling.innerHTML);
+        }
     }
+    else if(counter === 1){
+        clearMemory();
+    } 
 }
 
 //function that changes the value of the stars
@@ -98,7 +102,6 @@ function compare(){
         }
         clearMemory();
     }
-    turn++;
     runningTotal.innerHTML = turn + " moves";
 }
 
